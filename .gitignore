@@ -1,0 +1,23 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Log files and log directories
+*.log
+logs/
+
+# README files
+README*
+readme*
+Readme*
+
+# Environment variables and secrets
+.env
+
+#experimental results
+results/

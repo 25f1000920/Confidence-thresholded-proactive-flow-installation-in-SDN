@@ -1,0 +1,22 @@
+# --- Runs anywhere (pure Python 3.10+, stdlib only) ---
+# shared/, table_sim/, predictors/markov.py, policy/, traffic/, scripts/replay.py,
+# scripts/smoke_test.py, tests/ have NO third-party dependencies.
+
+# --- Needed only for the LSTM predictor ---
+torch>=2.0
+
+# --- Needed only on your Mininet/Ryu machine, for live runs ---
+# Do NOT `pip install -r` this file for the live side; follow README "Live runs: setup".
+# Ryu's last release (4.34, 2020) needs an old setuptools to INSTALL and a matching
+# eventlet to RUN, and the right eventlet depends on your Python version:
+#
+#   Python 3.10 / 3.11 (Ubuntu 22.04's default python3 is 3.10):
+#       setuptools==67.6.1   eventlet==0.33.3   ryu==4.34
+#       (eventlet 0.30.2 crashes here: "cannot set 'is_timeout' attribute of immutable
+#        type 'TimeoutError'". scripts/ryu_manager.py supplies the ALREADY_HANDLED name
+#        that eventlet >= 0.30.3 removed.)
+#   Python 3.8 / 3.9 (Ubuntu 20.04, or a deadsnakes python3.9 venv):
+#       setuptools==67.6.1   eventlet==0.30.2   ryu==4.34
+#
+# mininet + openvswitch-switch come from apt and live in the SYSTEM python, not the venv.
+# torch must ALSO be installed in the Ryu venv if you run the lstm strategy live.
