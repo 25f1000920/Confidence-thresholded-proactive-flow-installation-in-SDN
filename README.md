@@ -187,23 +187,6 @@ Everything is written to `results/` and zipped to `~/sdn_analysis_results.zip`:
 
 The whole pipeline (920 runs plus analysis) took about 1.5 hours on one laptop.
 
-## 5. Building the report
-
-`report/final_report.tex` is written for LuaLaTeX and needs the four PDFs in `report/figures/`:
-
-- `fig_tau_curves.pdf`
-- `fig_pareto.pdf`
-- `fig_calibration.pdf`
-- `fig_h4.pdf`
-
-Copy them from `results/figures/report/`, then build:
-
-```bash
-cd report && lualatex final_report.tex && lualatex final_report.tex
-```
-
----
-
 ## Notes and known limitations
 
 - **Live latency is compared within each arm.** Each arm's live latency saving is relative to its own τ = 1.0 run.
